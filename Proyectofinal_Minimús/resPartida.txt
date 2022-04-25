@@ -1,0 +1,10 @@
+Pareja A: Jugador 1A y Jugador 2A.
+Pareja B: Jugador 1B y Jugador 2B.
+Mano: Jugador 1A
+*(2E, CE, RE, 3B)-(SE, CB, CO, RC)-(1C, 4E, 4O, 6B)-(1O, 2B, 2O, 7C) 
+Grande 3 0 Chica 0 3 Pares 2 3 Juego 5 2 - 10 8
+-(4C, CE, RO, 3E)*(5E, CC, CO, RE)-(2O, SB, RC, 3C)-(2C, 4B, 4O, 7O) 
+Grande 3 0 Chica 0 3 Pares 2 2 Juego 7 2 - 22 15
+-(6C, 7O, SB, 3C)-(1B, 2E, 6B, CO)*(1O, 4O, 7B, 3B)-(6E, 7C, SE, RO) 
+Grande 1 1 Chica 0 3 Pares 0 1 Juego 18 2 - 41 22
+Gana: Pareja A. Número de jugadas: 3
