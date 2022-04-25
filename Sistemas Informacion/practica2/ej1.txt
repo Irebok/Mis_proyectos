@@ -1,0 +1,53 @@
+create table if not exists Actores(ID_actor int not null auto_increment, nombre_completo varchar(20),primary key(ID_actor));
+
+create table if not exists Directores(ID_director int not null auto_increment, nombre_completo varchar(20),primary key(ID_director));
+
+create table if not exists Peliculas(ID_peliculas int not null auto_increment, nombre_completo varchar(20),primary key(ID_peliculas));
+/*
+insert into Actores (nombre_completo) values ('Pepe Romero');
+insert into Actores (nombre_completo) values ('Juanma');
+insert into Actores (nombre_completo) values ('Mortadelo');
+insert into Actores (nombre_completo) values ('Filemon');
+insert into Actores (nombre_completo) values ('Superintendente');
+
+insert into Directores (nombre_completo) values ('Amenabar');
+insert into Directores (nombre_completo) values ('Otrocualquiera');
+insert into Directores (nombre_completo) values ('Alex');
+insert into Directores (nombre_completo) values ('Luis');
+insert into Directores (nombre_completo) values ('Pedro');
+
+insert into Peliculas (nombre_completo) values ('Club lucha');
+insert into Peliculas (nombre_completo) values ('Divergente');
+insert into Peliculas (nombre_completo) values ('Juegos hambre');
+insert into Peliculas (nombre_completo) values ('Ocho vascos');
+insert into Peliculas (nombre_completo) values ('Prision break');
+*/
+drop table if exists Actores;
+drop table if exists Directores;
+drop table if exists Peliculas;
+
+
+create table if not exists Actores(
+ID_actor int not null auto_increment,
+nombre_completo varchar(20),
+primary key(ID_actor)
+);
+
+create table if not exists Directores(
+ID_director int not null auto_increment,
+nombre_completo varchar(20),
+primary key(ID_director)
+);
+
+create table if not exists Peliculas(
+ID_peliculas int not null auto_increment,
+ID_director int, 
+nombre_completo varchar(20),
+primary key(ID_peliculas),
+foreign key(ID_director) references Directores(ID_director)
+);
+show tables;
+describe Actores;
+describe Directores;
+describe Peliculas;
+select * from Peliculas;

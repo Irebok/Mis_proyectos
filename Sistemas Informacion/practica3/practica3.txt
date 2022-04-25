@@ -1,0 +1,398 @@
+
+/*
+delimiter //
+Create procedure listar_directores_peliculas()
+BEGIN
+select Peliculas.nombre_completo, Directores.nombre_completo from Peliculas
+inner join Directores 
+on Directores.ID_director = Peliculas.ID_director;
+END//
+delimiter ;
+
+CALL listar_directores_peliculas();
+
+-----------------------Ejercicio 2--------------------------------
+
+
+
+drop procedure if exists contar_directores;
+delimiter //
+
+Create procedure contar_directores()
+BEGIN
+
+DECLARE num int;
+DECLARE valor_fecha date;
+DECLARE valor_hora time;
+DECLARE valor_fecha_hora datetime;
+
+create table if not exists cuentaDirectores(
+fecha_hora datetime,
+fecha date,
+hora  time,
+numDirectores int
+);
+
+
+set valor_fecha = current_date();
+set valor_hora = current_time();
+set valor_fecha_hora = now();
+
+
+select count(*) into num from Directores; 
+ 
+insert into cuentaDirectores values(valor_fecha_hora, valor_fecha, valor_hora, num);
+END//
+
+delimiter ;
+
+call contar_directores();
+
+select * from cuentaDirectores;
+
+
+-----------------------------Ejercicio3---------------------------
+
+
+
+drop procedure if exists contar_directores;
+delimiter //
+
+Create procedure contar_directores()
+BEGIN
+
+
+DECLARE num int;
+DECLARE valor_fecha date;
+DECLARE valor_hora time;
+DECLARE valor_fecha_hora datetime;
+
+create table if not exists cuentaDirectores(
+fecha_hora datetime,
+fecha date,
+hora  time,
+numDirectores int
+);
+
+
+set valor_fecha = current_date();
+set valor_hora = current_time();
+set valor_fecha_hora = now();
+
+
+if( @veces is null) then 
+set @veces = 0;
+end if;
+
+set @veces = @veces + 1;
+
+select count(*) into num from Directores; 
+ 
+insert into cuentaDirectores values(valor_fecha_hora, valor_fecha, valor_hora, num);
+END//
+
+delimiter ;
+
+
+
+-----------------------------Ejercicio4-------------------------------
+
+
+alter table Peliculas drop nacionalidad ;
+alter table Directores drop nacionalidad;
+alter table Actores drop nacionalidad ;
+
+
+alter table Peliculas add nacionalidad varchar(10) not null ;
+alter table Directores add nacionalidad varchar(10) not null;
+alter table Actores add nacionalidad varchar(10) not null;
+
+
+update Peliculas set nacionalidad = 'España' where ID_pelicula = 1;
+update Peliculas set nacionalidad = 'EEUU' where ID_pelicula = 2;
+update Peliculas set nacionalidad = 'EEUU' where ID_pelicula = 3;
+update Peliculas set nacionalidad = 'España' where ID_pelicula = 4;
+update Peliculas set nacionalidad = 'Mexico' where ID_pelicula = 5;
+update Peliculas set nacionalidad = 'Inglaterra' where ID_pelicula = 6;
+
+update Directores set nacionalidad = 'España' where ID_director = 1;
+update Directores set nacionalidad = 'Bulgaria' where ID_director = 2;
+update Directores set nacionalidad = 'EEUU' where ID_director = 3;
+update Directores set nacionalidad = 'España' where ID_director = 4;
+update Directores set nacionalidad = 'España' where ID_director = 5;
+update Directores set nacionalidad = 'Gallego' where ID_director = 6;
+
+update Actores set nacionalidad = 'España' where ID_actor = 1;
+update Actores set nacionalidad = 'Mexico' where ID_actor = 2;
+update Actores set nacionalidad = 'Venezuela' where ID_actor = 3;
+update Actores set nacionalidad = 'España' where ID_actor = 4;
+update Actores set nacionalidad = 'A saber' where ID_actor = 5;
+
+select * from Peliculas;
+select * from Directores;
+select * from Actores;
+
+
+select * from Peliculas;
+select * from Directores;
+select * from Actores;
+
+delimiter //
+
+drop procedure if exists consultaPorNacionalidad//
+
+create procedure consultaPorNacionalidad(in consul varchar(10))
+begin
+	select ID_Pelicula, nombre_completo from Peliculas 
+	where nacionalidad = consul;
+	
+	select ID_director, nombre_completo from Directores 
+	where nacionalidad = consul;
+
+	select ID_actor, nombre_completo from Actores
+	where nacionalidad = consul;
+
+end //
+
+delimiter ;
+
+call consultasPorNacionalidad('España');
+
+---------------------------------Ejercicio5---------------------------
+
+
+
+delimiter //
+
+drop procedure if exists peliculasPorNacionalidad//
+
+create procedure peliculasPorNacionalidad(in consul varchar(10), out num int)
+begin
+	select COUNT(*) into num from Peliculas 
+	where nacionalidad = consul;
+	
+
+end //
+
+delimiter ;
+
+
+call peliculasPorNacionalidad('España',@num);
+select @num;
+
+
+---------------------------------Ejercicio6---------------------------
+
+
+
+
+
+
+
+delimiter //
+
+drop procedure if exists ponMayus//
+
+create procedure ponMayus(inout minus  varchar(20))
+begin
+
+	set minus = upper(minus);	
+
+end //
+
+delimiter ;
+
+
+set @minus = 'hola a tods chavales';
+call ponMayus(@minus);
+select @minus;
+
+
+
+----------------------------Ejercicio7-------------------------
+
+
+
+
+drop procedure if exists contar_directores;
+delimiter //
+
+Create procedure contar_directores()
+BEGIN
+
+
+DECLARE num int;
+DECLARE valor_fecha_hora datetime;
+DECLARE valor_tabla int; 
+
+create table if not exists cuentaDirectores(
+fecha_hora datetime,
+numDirectores int,
+primary key(fecha_hora)
+);
+
+set valor_fecha_hora = now();
+
+
+if( @veces is null) then 
+set @veces = 0;
+end if;
+
+set @veces = @veces + 1;
+
+
+select count(*) into num from Directores; 
+
+select count(*) into valor_tabla from cuentaDirectores;
+
+if(valor_tabla > 5) then 
+
+ delete from cuentaDirectores order by fecha_hora limit 1;
+
+end if;
+insert into cuentaDirectores values(valor_fecha_hora, num);
+select * from cuentaDirectores;
+
+END//
+
+delimiter ;
+---------------------------Ejercicio8-------------------------------
+
+
+
+
+drop procedure if exists extraer_imdbs;
+delimiter //
+
+Create procedure extraer_imdbs(in nacional varchar(15))
+BEGIN
+
+declare salir int default 0;
+declare valor_imdb int;
+declare valor_nacion varchar(15); 
+declare micursor cursor for select IMDb, nacionalidad from Peliculas;
+declare CONTINUE handler for not found set salir = 1;
+
+
+
+set @tirartabla :=CONCAT('drop table if exists ', nacional, ';');
+set @creartabla :=CONCAT('create table ', nacional, ' (IMDb int );');
+
+
+prepare stmp_tirar from @tirartabla;
+prepare stmp_crear from @creartabla;
+
+
+execute stmp_tirar;
+execute stmp_crear;
+
+
+open micursor;
+
+bucle: LOOP
+
+fetch micursor into valor_imdb, valor_nacion;
+if salir = 1 then leave bucle;
+end if; 
+
+if valor_nacion = nacional then
+set @inserttabla :=CONCAT('insert into ', nacional, ' values(',valor_imdb,');'); 
+prepare stmp_insert from @inserttabla; 
+execute stmp_insert;
+end if; 
+
+
+
+END LOOP bucle;
+close micursor;
+
+set @abrirtabla :=CONCAT('select * from ', nacional, ';');
+prepare stmp_abrir from @abrirtabla; 
+execute stmp_abrir;
+END//
+
+delimiter ;
+
+
+
+------------------------------Ejercicio9--------------------------
+
+
+
+select @@autocommit;
+set autocommit = 0;
+select @@autocommit;
+
+start transaction;
+select * from Peliculas;
+insert into Peliculas(ID_director,IMDb,nombre_completo,nacionalidad) values (  2, 120635, 'Oliver', 'Moldavia');
+select * from Peliculas;
+
+commit;
+rollback;
+
+
+----------------------------------Ejercicio10---------------------------
+
+
+drop procedure if exists introducir_pelicula;
+delimiter //
+
+create procedure introducir_pelicula( 
+in ID_direc int, 
+in valor_IMDb int, 
+in nombre varchar(15), 
+in nacional varchar(15))
+begin
+
+
+ start transaction;
+insert into Peliculas(ID_director, IMDb, nombre_completo, nacionalidad)
+ value(ID_direc, valor_IMDb, nombre, nacional);
+select sleep(10);
+commit;
+
+END//
+ delimiter ;
+
+
+
+no funciona!
+preguntar
+
+
+-------------------------------Ejercicio 11-------------------
+
+
+insert into Peliculas value(19,1, 2222,'The abeyoneyou' , 'EEUU');
+insert into Peliculas value(18,1, 1111,'El abejonejo' , 'España');
+*/
+
+delimiter //
+
+drop trigger if exists actualizaIMBs//
+
+create TRIGGER actualizaIMBs after insert on Peliculas
+for each row
+begin
+
+declare num int;
+declare nacional varchar(15);
+
+select IMDb  into num from Peliculas where ID_pelicula = new.ID_pelicula;
+select nacionalidad  into nacional from Peliculas where ID_pelicula = new.ID_pelicula;
+
+if nacional = 'España' then 
+insert into España values(num); 
+end if;
+
+if nacional = 'EEUU' then 
+insert into EEUU values(num); 
+end if;
+
+
+end//
+
+delimiter ;
+
+

@@ -1,0 +1,256 @@
+/* 
+alter table Actores drop fotografia;
+alter table Directores  drop fotografia;
+alter table Actores add fotografia blob not null;
+alter table Directores add fotografia blob not null;
+
+
+
+---------------------------Ejercicio2-----------------------
+
+
+alter table Peliculas add valoracion  decimal(3,2) unsigned;
+
+update  Peliculas  set valoracion = 5.3 where ID_pelicula = 1;
+update  Peliculas  set valoracion = 4 where ID_pelicula = 2;
+update  Peliculas  set valoracion = 7 where ID_pelicula = 3;
+update  Peliculas  set valoracion = 9 where ID_pelicula = 4;
+update  Peliculas  set valoracion = 1 where ID_pelicula = 5;
+update  Peliculas  set valoracion = 4 where ID_pelicula = 6;
+update  Peliculas  set valoracion = 7 where ID_pelicula = 7;
+update  Peliculas  set valoracion = 8 where ID_pelicula = 8;
+update  Peliculas  set valoracion = 2 where ID_pelicula = 9;
+update  Peliculas  set valoracion = 6 where ID_pelicula = 10;
+update  Peliculas  set valoracion = 3 where ID_pelicula = 11;
+update  Peliculas  set valoracion = 1 where ID_pelicula = 12;
+update  Peliculas  set valoracion = 9 where ID_pelicula = 13;
+update  Peliculas  set valoracion = 8 where ID_pelicula = 14;
+update  Peliculas  set valoracion = 1 where ID_pelicula = 15;
+update  Peliculas  set valoracion = 6 where ID_pelicula = 16;
+update  Peliculas  set valoracion = 4 where ID_pelicula = 17;
+update  Peliculas  set valoracion = 1 where ID_pelicula = 18;
+update  Peliculas  set valoracion = 9 where ID_pelicula = 19;
+
+
+
+select * from Peliculas;
+
+-----------------------------Ejercicio3----------------------------
+
+
+alter table Peliculas drop nacionalidad;
+alter table Peliculas add nacionalidad varchar(15) default 'EEUU';
+
+
+update  Peliculas  set nacionalidad = "España" where ID_pelicula = 1;
+update  Peliculas  set nacionalidad = "Rusia" where ID_pelicula = 5;
+update  Peliculas  set nacionalidad = "España" where ID_pelicula = 7;
+update  Peliculas  set nacionalidad = "Japon" where ID_pelicula = 12;
+update  Peliculas  set nacionalidad = "España" where ID_pelicula = 18;
+update  Peliculas  set nacionalidad = "Italia" where ID_pelicula = 11;
+
+select * from Peliculas;
+
+       -----------------------------Ejercicio4---------------------------
+
+alter table Peliculas add fechayhora timestamp default now() 
+on update now();
+
+insert into Peliculas(ID_director, IMDb, nombre_completo, valoracion, nacionalidad) values( 3, 239402, 'Tu y yo', 4.5, 'Noruega');
+
+
+update  Peliculas  set nacionalidad = "España" where ID_pelicula = 2;
+
+alter table Directores add fechayhora timestamp default now() 
+on update now();
+
+alter table Actores  add fechayhora timestamp default now() 
+on update now();
+
+------------------------------------Ejercicio5-----------------------
+
+delete from Peliculas where ID_pelicula = 10;
+
+
+insert into Peliculas(ID_director, IMDb, nombre_completo, valoracion,
+nacionalidad) values( 3, 23902, 'Oliver y Benji', 9.8, 'Japon');
+
+
+delete from Peliculas where ID_pelicula = 21;
+delete from Peliculas where ID_pelicula = 22;
+
+insert into Peliculas(ID_director, IMDb, nombre_completo, valoracion, nacionalidad) values( 3, 239402, 'Tu y yo', 4.5, 'Noruega');
+
+
+insert into Peliculas(ID_pelicula, ID_director, IMDb, nombre_completo,
+valoracion, nacionalidad) values(25, 3, 2394202, 'Yo y tu', 4.1, 'Islandia');
+
+insert into Peliculas( ID_director, IMDb, nombre_completo,
+valoracion, nacionalidad) values( 2, 21394202, 'Eu e ti', 2.1, 'Galicia');
+
+
+En caso de fallo al crear salta el siguiente numero 
+No reutiliza numeros usados anteriormente con autoincrement
+Establece el siguiente numero con autoincrement aunque la inserccion anterior
+se hiciese con el numero seleccionado a mano
+
+----------------------------------Ejercicio6---------------------------------
+
+
+create or replace view vista_peliculas as select ID_pelicula, nombre_completo,
+nacionalidad from Peliculas; 
+
+select * from vista_peliculas;
+
+
+
+---------------------------------------Ejercicio7----------------------------------------
+
+alter table Directores change column nombre_completo nombre_director varchar(20);
+alter table Peliculas change column nombre_completo nombre_pelicula varchar(20);
+alter table Actores change column nombre_completo  nombre_actor varchar(20);
+
+
+create or replace view vista_peli_actor as select Peliculas.nombre_pelicula,
+Peliculas.nacionalidad, Directores.nombre_director, Actores.nombre_actor from 
+
+Peliculas inner join Directores 
+on Peliculas.ID_director = Directores.ID_director
+
+inner join Actuacion 
+on Peliculas.ID_pelicula = Actuacion.ID_pelicula
+
+inner join Actores
+on Actores.ID_actor = Actuacion.ID_actor;
+
+select * from vista_peli_actor;
+
+
+-----------------------------------Ejercicio8--------------------------------
+
+
+ejercicio incompleto ya que no tengo el parametro necesario para buscar y me
+da pereza hacerlo pero sería algo asi
+
+
+create or replace view as vista_año  select Peliculas.nombre_pelicula  from Pelicula
+
+where año_creacion < 2000;
+
+select * from vista_año;
+
+----------------------------------Ejercicio9--------------------------------------
+
+select * from vista_peli_actor;
+
+create or replace view vista_peli_actor as select Peliculas.ID_pelicula,
+Peliculas.nombre_pelicula, Peliculas.nacionalidad, Directores.nombre_director, Actores.nombre_actor from 
+
+Peliculas inner join Directores 
+on Peliculas.ID_director = Directores.ID_director
+
+inner join Actuacion 
+on Peliculas.ID_pelicula = Actuacion.ID_pelicula
+
+inner join Actores
+on Actores.ID_actor = Actuacion.ID_actor;
+
+select * from vista_peli_actor;
+
+update vista_peli_actor set nacionalidad = "Eslovaquia" 
+where ID_pelicula = 1;
+
+select * from vista_peli_actor;
+select * from Peliculas;
+
+insert into Peliculas(ID_director,IMDb, nombre_pelicula,valoracion, nacionalidad)
+values(5,4523, "Panoramix",3.9, "Italia");
+
+insert into Actuacion values(5,28,4523);
+
+
+
+insert into vista_peli_actor(ID_pelicula, nombre_pelicula, nacionalidad)
+values(10, "Asterix", "Italia");
+
+
+insert into vista_peli_actor( nombre_director) values("Pedro");
+insert into vista_peli_actor( nombre_actor) values("Superintendente");
+
+select * from vista_peli_actor;
+select * from Peliculas;
+
+
+
+
+create or replace view vista_peli_actor as select Peliculas.nombre_pelicula, Peliculas.nacionalidad, Directores.nombre_director, Actores.nombre_actor from 
+
+Peliculas inner join Directores 
+on Peliculas.ID_director = Directores.ID_director
+
+inner join Actuacion 
+on Peliculas.ID_pelicula = Actuacion.ID_pelicula
+
+inner join Actores
+on Actores.ID_actor = Actuacion.ID_actor;
+
+
+insert into vista_peli_actor( nombre_pelicula, nacionalidad)
+values( "Charlie y fabrica", "choclolattilandia");
+
+
+insert into vista_peli_actor( nombre_director) values("Alfonso");
+insert into vista_peli_actor( nombre_actor) values("Duendes");
+
+
+----------------------------------Ejercicio10-------------------------------------
+
+Para realizar las modificaciones supongo que la forma mas facil de hacer que
+sea mas eficiente es eliminar el id_director dentro de peliculas ya que da
+fallo al crear vistas con peliculas ya que es necesario introducir su foreign
+key, la cual no es posible.
+
+---------------------------------Ejercicio11------------------------------
+
+create user 'usuario_capado'@'localhost' identified by '123456';
+revoke all privileges on *.* from  'usuario_capado'@'localhost'
+grant show view on practica2.* to 'usuario_capado'@'localhost';
+grant select on practica2.vista_peli_actor to 'usuario_capado'@'localhost';
+grant select on practica2.vista_peliculas to 'usuario_capado'@'localhost';
+
+
+create or replace view vista_peliculas as select ID_pelicula, nombre_pelicula,
+nacionalidad from Peliculas; 
+
+----------------------------------Ejercicio12--------------------------------
+
+create database practica4
+use practica4;
+
+
+drop table if exists relacion_uno;
+create table relacion_uno(entero int, cadena varchar(20), unique indice
+(entero,cadena));
+
+drop table if exists relacion_dos;
+create table relacion_dos(entero int, cadena varchar(20));
+
+
+
+
+--------------------------------Ejercicio13-----------------------------
+
+
+Generar 4 ficheros con los que hacer un inner join y ver el resultado
+
+
+
+
+
+
+
+
+
+
+*/
+

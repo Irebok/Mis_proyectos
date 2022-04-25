@@ -1,0 +1,77 @@
+/*select * from alumno_3ciclo;
+
+select nombre from alumno_3ciclo
+       where nombre_dpto = 'Ingeniería Telematica';
+
+select nombre, salario from docente
+       where salario > 7000;
+
+select docente.ID, docente.nombre, docente.nombre_dpto,
+departamento.edificio, departamento.presupuesto from
+docente inner join departamento 
+	on docente.nombre_dpto = departamento.nombre_dpto;
+
+
+select materia.nombre, departamento.nombre_dpto, materia.creditos from
+materia inner join departamento
+	on materia.nombre_dpto = departamento.nombre_dpto
+	where departamento.nombre_dpto = 'Ingenieria Telematica'
+	AND materia.creditos = 3;
+
+
+select alumno_3ciclo.ID, alumno_3ciclo.nombre, materia.nombre from
+alumno_3ciclo inner join cursa
+	      on alumno_3ciclo.ID = cursa.ID
+inner join materia
+	      on materia.id_materia = cursa.id_materia 
+where alumno_3ciclo.ID = 9659;
+
+
+
+select alumno_3ciclo.nombre,SUM(materia.creditos),alumno_3ciclo.tot_creditos from alumno_3ciclo
+inner join cursa
+      on cursa.ID = alumno_3ciclo.ID
+inner join materia
+      on cursa.id_materia = materia.id_materia
+group by cursa.ID
+order by alumno_3ciclo.ID;
+
+
+
+select alumno_3ciclo.ID,SUM(materia.creditos),alumno_3ciclo.tot_creditos from alumno_3ciclo
+inner join cursa
+      on cursa.ID = alumno_3ciclo.ID
+inner join materia
+      on cursa.id_materia = materia.id_materia
+group by cursa.ID
+order by alumno_3ciclo.ID;
+
+
+select alumno_3ciclo.nombre, materia.nombre_dpto from alumno_3ciclo
+inner join cursa
+      on cursa.ID = alumno_3ciclo.ID
+inner join materia
+      on materia.id_materia = cursa.id_materia
+where materia.nombre_dpto = 'Ingenieria Telematica' 
+group by alumno_3ciclo.nombre;
+
+
+select docente.nombre from docente
+      where docente.ID not in(select imparte.ID from imparte);
+*/
+
+select cursa.id_materia, cursa.id_grupo ,COUNT(*) from cursa
+group by cursa.id_grupo
+order by COUNT(*) asc
+limit 1;
+
+select cursa.id_materia, cursa.id_grupo ,COUNT(*) from cursa
+group by cursa.id_grupo
+order by COUNT(*) desc
+limit 1;
+
+
+
+
+
+

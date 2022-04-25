@@ -1,0 +1,64 @@
+drop DATABASE practica2;
+create DATABASE practica2;
+use practica2;
+
+create table if not exists Actores(
+ID_actor int not null auto_increment,
+nombre_completo varchar(20),
+primary key(ID_actor)
+);
+
+create table if not exists Directores(
+ID_director int not null auto_increment,
+nombre_completo varchar(20),
+primary key(ID_director)
+);
+
+#relacion muchos a uno
+create table if not exists Peliculas(
+ID_pelicula int not null auto_increment,
+ID_director int not null,
+nombre_completo varchar(20),
+primary key(ID_pelicula),
+foreign key(ID_director) references Directores(ID_director)
+);
+
+#relacion muchos a muchos
+create table if not exists Actuacion(
+ID_actor int not null,
+ID_pelicula int not null,
+foreign key(ID_actor) references Actores(ID_actor),
+foreign key(ID_pelicula) references Peliculas(ID_pelicula)
+);
+
+
+insert into Actores (nombre_completo) values ('Pepe Romero');
+insert into Actores (nombre_completo) values ('Juanma');
+insert into Actores (nombre_completo) values ('Mortadelo');
+insert into Actores (nombre_completo) values ('Filemon');
+insert into Actores (nombre_completo) values ('Superintendente');
+
+insert into Directores (nombre_completo) values ('Amenabar');
+insert into Directores (nombre_completo) values ('Otrocualquiera');
+insert into Directores (nombre_completo) values ('Alex');
+insert into Directores (nombre_completo) values ('Luis');
+insert into Directores (nombre_completo) values ('Pedro');
+
+insert into Peliculas (ID_director,nombre_completo) values ('1','Club lucha');
+insert into Peliculas (ID_director,nombre_completo) values ('3','Divergente');
+insert into Peliculas (ID_director,nombre_completo) values ('1','Juegos  hambre');
+insert into Peliculas (ID_director,nombre_completo) values ('1','Ocho vascos');
+insert into Peliculas (ID_director,nombre_completo) values ('5','Prision break');
+
+insert into Actuacion values('1','2');
+insert into Actuacion values('4','2');
+insert into Actuacion values('2','3');
+
+
+show tables;
+describe Actores;
+describe Directores;
+describe Peliculas;
+describe Actuacion;
+select * from Peliculas;
+select * from Actuacion;

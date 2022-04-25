@@ -1,0 +1,115 @@
+drop DATABASE practica2;
+create DATABASE practica2;
+use practica2;
+
+create table if not exists Actores(
+ID_actor int not null auto_increment,
+nombre_completo  varchar(20) not null,
+edad int unsigned not null , 
+primary key(ID_actor)
+);
+
+create table if not exists Directores(
+ID_director int not null auto_increment,
+nombre_completo varchar(20) not null,
+edad int not null,
+primary key(ID_director)
+);
+
+#relacion muchos a uno
+create table if not exists Peliculas(
+ID_pelicula int not null auto_increment,
+ID_director int not null,
+IMDb int unique,
+nombre_completo varchar(20) not null,
+primary key(ID_pelicula),
+foreign key(ID_director) references Directores(ID_director)
+);
+
+#relacion muchos a muchos
+create table if not exists Actuacion(
+ID_actor int not null,
+ID_pelicula int not null,
+IMDB int,
+foreign key(ID_actor) references Actores(ID_actor),
+foreign key(ID_pelicula) references Peliculas(ID_pelicula),
+foreign key(IMDb) references Peliculas(IMDb)
+);
+
+insert into Actores (nombre_completo,edad) values ('Pepe Romero','1');
+insert into Actores (nombre_completo,edad) values ('Juanma','55');
+insert into Actores (nombre_completo,edad) values ('Mortadelo','55');
+insert into Actores (nombre_completo,edad) values ('Filemon','40');
+insert into Actores (nombre_completo,edad) values ('Superintendente','100');
+
+insert into Directores (nombre_completo,edad) values ('Amenabar','43');
+insert into Directores (nombre_completo,edad) values ('Otrocualquiera','30');
+insert into Directores (nombre_completo,edad) values ('Alex','140');
+insert into Directores (nombre_completo,edad) values ('Luis','23');
+insert into Directores (nombre_completo,edad) values ('Pedro','45');
+
+#añado esto para demostrar que elimina la pelicula al introducir NULL
+#insert into Peliculas (IMDb,ID_director,nombre_completo) values
+#('12345','1',NULL);
+
+insert into Peliculas (IMDb,ID_director,nombre_completo) values ('12345','1','Batalla');
+insert into Peliculas (IMDb,ID_director,nombre_completo) values ('13579','3','Divergente');
+insert into Peliculas (IMDb,ID_director,nombre_completo) values ('1238765','1','Juegos  hambre');
+insert into Peliculas (IMDb,ID_director,nombre_completo) values ('1483','1','Ocho vascos');
+insert into Peliculas (IMDb,ID_director,nombre_completo)values('5678','5','Prision break');
+
+insert into Peliculas (IMDb,ID_director,nombre_completo)values('567','5','Vacaciones');
+
+
+
+insert into Actuacion values('4','2','5678');
+insert into Actuacion values('2','1','13579');
+insert into Actuacion values('2','2','5678');
+insert into Actuacion values('1','1','13579');
+insert into Actuacion values('3','5','567');
+
+
+
+show tables;
+describe Actores;
+describe Directores;
+describe Peliculas;
+describe Actuacion;
+select * from Actores;
+select * from Directores;
+select * from Peliculas;
+select * from Actuacion;
+select nombre_completo from Actores;
+
+select Actores.nombre_completo from Actores
+inner join Actuacion
+on Actuacion.ID_actor=Actores.ID_actor
+inner join Peliculas
+on Peliculas.ID_pelicula=Actuacion.ID_pelicula
+where Peliculas.nombre_completo='Batalla'; 
+
+select nombre_completo from Actores
+where edad>=55;
+
+select Peliculas.ID_pelicula, Peliculas.nombre_completo, Peliculas.IMDb, Directores.nombre_completo from
+Peliculas
+inner join Directores
+      on Directores.ID_director = Peliculas.ID_director;
+
+select Directores.ID_director, Directores.nombre_completo, COUNT(*) from
+Peliculas inner join Directores
+	  on Directores.ID_director = Peliculas.ID_director
+group by Directores.nombre_completo;
+
+select * from Actores
+	  where Actores.ID_actor not in(select ID_actor from Actuacion);
+
+
+select Actuacion.ID_actor, Actores.nombre_completo, Directores.nombre_completo  from Actores
+inner join Actuacion
+      	   on Actores.ID_actor = Actuacion.ID_actor 
+inner join Peliculas
+	  on Actuacion.ID_pelicula = Peliculas.ID_pelicula
+inner join Directores
+      	  on Peliculas.ID_director = Directores.ID_director
+order by Actuacion.ID_actor ;

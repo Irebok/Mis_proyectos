@@ -1,0 +1,6 @@
+create table Actores(ID_actor int not null auto increment, nombre_completo
+varchar(20),primary key(ID_actor));
+
+create table Directores(ID_director int not null auto increment, nombre_completo varchar(20),primary key(ID_director));
+
+create table Peliculas(ID_peliculas int not null auto increment, nombre_completo varchar(20),primary key(ID_peliculas));

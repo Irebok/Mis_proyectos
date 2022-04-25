@@ -1,0 +1,2 @@
+select * from actores;
+select nombre_completo = "La Guerra de las Galaxias";
