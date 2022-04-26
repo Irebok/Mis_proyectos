@@ -1,0 +1,199 @@
+<div class="row">
+    <div class = "col-md-4">
+        <u>Que le gustaria hacer ?</u>
+    </div>
+</div>
+<br>
+
+<div>
+    <form #formularioBusqueda = "ngForm" (ngSubmit) = "getArticuloPorAno(articuloTienda.recogeBusqueda.curso_academico.curso, articuloTienda.recogeBusqueda.curso_academico.cuatri)">
+        <div>
+            <input
+                type="text"
+                class="formulario"
+                name="curso"
+                placeholder="Introduzca curso" 
+                [(ngModel)]="articuloTienda.recogeBusqueda.curso_academico.curso" 
+                :required
+            />
+
+            <input
+                type="text"
+                class="formulario"
+                name="cuatri"
+                placeholder="Introduzca cuatrimestre" 
+                [(ngModel)]="articuloTienda.recogeBusqueda.curso_academico.cuatri" 
+                :required
+                
+            />
+            <button class="btn btn-primary mr-2">Buscar articulos</button>
+
+            
+        </div>
+    </form>
+</div>
+
+<div>
+    <form #formularioBusquedaId = "ngForm" (ngSubmit) = "getArticuloPorId(articuloTienda.recogeBusqueda._id)">
+        <div>
+            <input
+                type="text"
+                class="formulario"
+                name="_id"
+                placeholder="Introduzca id de mongo" 
+                [(ngModel)]="articuloTienda.recogeBusqueda._id" 
+                :required
+            />
+
+            <button class="btn btn-primary mr-2">Buscar por id</button>
+
+        </div>
+    </form>
+    <button (click)= "getArticulos()" class="btn btn-primary mr-2">Mostrar todo</button>
+</div>
+
+
+<div class = "col-md-8">
+    <table class = "table table-striped">
+        <thead>
+            <tr>
+                <th>asignatura</th>
+                <th>curso</th>
+                <th>cuatri</th>
+                <th>profesor</th>
+                <th>departamento</th>
+                <th>idioma</th>
+                <th>autor</th>
+                <th>tipo</th>
+                <th>cantidad</th>
+                <th>precio</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let articulo of articuloTienda.articulo">
+                <td>{{ articulo.asignatura }}</td>
+                <td>{{ articulo.curso_academico.curso }}</td>
+                <td>{{ articulo.curso_academico.cuatri }}</td>
+                <td>{{ articulo.profesorado.profesor }}</td>
+                <td>{{ articulo.profesorado.departamento }}</td>
+                <td>{{ articulo.idioma }}</td>
+                <td>{{ articulo.autor }}</td>
+                <td>{{ articulo.tipo }}</td>
+                <td>{{ articulo.cantidad }}</td>
+                <td>{{ articulo.precio }}</td>
+                <td>
+                    <button (click)="deleteArticulo(articulo._id, formularioPost)" class="btn btn-primary mr-2">
+                        <i>Borrar</i>
+                    </button>
+
+                    <button (click)="putArticulo(articulo)" class="btn btn-primary mr-2">
+                        <i>Actualizar</i>
+                    </button>
+                </td>
+                
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+<br> <br>
+
+<div>
+    <form #formularioPost = "ngForm" (ngSubmit) = "postArticulo(formularioPost)">
+
+        <input type="hidden" name="_id" [(ngModel)]="articuloTienda.recogeDatos._id">
+
+        <div class="formulario">
+            <input
+                type="text"
+                class="formulario-control"
+                name="asignatura"
+                placeholder="Introduzca asignatura" 
+                [(ngModel)]="articuloTienda.recogeDatos.asignatura" 
+                :required   
+                />
+
+            <br>
+            <input
+                type="text"
+                class="formulario-control"
+                name="curso"
+                placeholder="Introduzca curso" 
+                [(ngModel)]="articuloTienda.recogeDatos.curso_academico.curso" 
+            />
+            <br>
+            <input
+                type="text"
+                class="formulario-control"
+                name="cuatri"
+                placeholder="Introduzca cuatri" 
+                [(ngModel)]="articuloTienda.recogeDatos.curso_academico.cuatri" 
+            />
+            <br>
+            <input
+                type="text"
+                class="formulario-control"
+                name="profesor"
+                placeholder="Introduzca profesor" 
+                [(ngModel)]="articuloTienda.recogeDatos.profesorado.profesor" 
+            />
+            <br>
+            <input
+                type="text"
+                class="formulario-control"
+                name="departamento"
+                placeholder="Introduzca departamento" 
+                [(ngModel)]="articuloTienda.recogeDatos.profesorado.departamento" 
+            />
+            <br>
+            <input
+                type="text"
+                class="formulario-control"
+                name="idioma"
+                placeholder="Introduzca idioma" 
+                [(ngModel)]="articuloTienda.recogeDatos.idioma" 
+            />
+            <br>
+            <input
+                type="text"
+                class="formulario-control"
+                name="tipo"
+                placeholder="Introduzca tipo de apuntes" 
+                [(ngModel)]="articuloTienda.recogeDatos.tipo" 
+            />
+            <br>
+            <input
+                type="text"
+                class="formulario-control"
+                name="autor"
+                placeholder="Introduzca autor" 
+                [(ngModel)]="articuloTienda.recogeDatos.autor" 
+            />
+            <br>
+            <a>&nbsp;&nbsp;Cantidad: </a>
+            <input
+                type="number"
+                class="formulario-control"
+                name="cantidad"
+                placeholder="Introduzca cantidad" 
+                [(ngModel)]="articuloTienda.recogeDatos.cantidad" 
+            />
+    
+            <a>&nbsp;&nbsp;&nbsp;&nbsp;Precio: </a>
+            <input
+                type="number"
+                class="formulario-control"
+                name="precio"
+                placeholder="Introduzca precio" 
+                [(ngModel)]="articuloTienda.recogeDatos.precio" 
+            />
+
+        </div>
+        <br>
+        <button class="btn btn-primary mr-2">Crear/Actualizar articulo</button>
+
+    </form>
+    <br> <br>
+
+
+</div>

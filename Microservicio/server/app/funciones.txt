@@ -1,0 +1,29 @@
+var Tienda = require('./modelo/esquema');
+var Controller = require ('./controller');
+const { collection } = require('./modelo/esquema');
+
+module.exports = function(app) {
+
+    app.get('/tienda', Controller.getPrincipal);
+
+    app.get('/tienda/mostrar', Controller.getTienda);
+
+    app.get('/tienda/buscarId', Controller.getID);
+
+    app.get('/tienda/buscar', Controller.getArticulo);
+
+    app.post('/tienda/crear', Controller.postTienda);
+
+    app.put('/tienda/actualizar/:asignatura', Controller.putArticulo);
+
+    app.delete('/tienda/eliminar/:asignatura', Controller.deleteArticulo);
+
+    /*app.get('*', function(request, response) {
+
+        response.sendFile('./frontend/src/app/components/articulos/articulos.component.html');
+    });*/
+
+    /*app.get('*', function(request, response){
+        response.sendFile('./angular/index.html');
+    });*/
+};
