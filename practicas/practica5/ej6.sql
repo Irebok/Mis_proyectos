@@ -1,1 +1,0 @@
-create view tituloNacionalidad as (select nombrePelicula, nacionalidad from peliculas);
