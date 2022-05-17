@@ -1,0 +1,736 @@
+<?xml version="1.0" ?>
+<BDempresa>
+	<departamentos>
+		<departmento dno="1">
+			<dnombre>Direccion</dnombre>
+			<sucursales>
+				<sucursal>Huelva</sucursal>
+			</sucursales>
+			<director ddni="888665555">
+				<fechaComienzo>19-JUN-1971</fechaComienzo>
+			</director>
+			<empleados ednis="888665555"/>
+			<proyectosGestionados pnums="20"/>
+		</departmento>
+		<departmento dno="4">
+			<dnombre>Administracion</dnombre>
+			<sucursales>
+				<sucursal>Salamanca</sucursal>
+			</sucursales>
+			<director ddni="987654321">
+				<fechaComienzo>01-ENE-1985</fechaComienzo>
+			</director>
+			<empleados ednis="987654321 987987987 999887777"/>
+			<proyectosGestionados pnums="10 30"/>
+		</departmento>
+		<departmento dno="5">
+			<dnombre>Investigacion</dnombre>
+			<sucursales>
+				<sucursal>Bilbao</sucursal>
+				<sucursal>Sevilla</sucursal>
+				<sucursal>Huelva</sucursal>
+			</sucursales>
+			<director ddni="333445555">
+				<fechaComienzo>22-MAY-1978</fechaComienzo>
+			</director>
+			<empleados ednis="123456789 333445555 666884444 453453453"/>
+			<proyectosGestionados pnums="1 2 3"/>
+		</departmento>
+		<departmento dno="6">
+			<dnombre>Software</dnombre>
+			<sucursales>
+				<sucursal>Barcelona</sucursal>
+				<sucursal>Valencia</sucursal>
+			</sucursales>
+			<director ddni="111111100">
+				<fechaComienzo>15-MAY-1999</fechaComienzo>
+			</director>
+			<empleados ednis="111111100 555555500 111111101 111111102 111111103 333333300 333333301 555555501"/>
+			<proyectosGestionados pnums="61 62 63"/>
+		</departmento>
+		<departmento dno="7">
+			<dnombre>Hardware</dnombre>
+			<sucursales>
+				<sucursal>Lisboa</sucursal>
+				<sucursal>Palencia</sucursal>
+			</sucursales>
+			<director ddni="444444400">
+				<fechaComienzo>15-MAY-1998</fechaComienzo>
+			</director>
+			<empleados ednis="222222200 222222201 222222202 222222203 222222204 222222205 444444400 444444401 444444402 444444403"/>
+			<proyectosGestionados pnums="91 92"/>
+		</departmento>
+		<departmento dno="8">
+			<dnombre>Ventas</dnombre>
+			<sucursales>
+				<sucursal>Caceres</sucursal>
+				<sucursal>San Sebastian</sucursal>
+				<sucursal>Madrid</sucursal>
+				<sucursal>Vigo</sucursal>
+				<sucursal>Zaragoza</sucursal>
+			</sucursales>
+			<director ddni="555555500">
+				<fechaComienzo>01-ENE-1997</fechaComienzo>
+			</director>
+			<empleados ednis="666666600 666666601 666666602 666666603 666666604 666666605 666666606 666666607 666666608 666666609 666666610 666666611 666666612 666666613"/>
+			<proyectosGestionados pnums=""/>
+		</departmento>
+	</departamentos>
+	<empleados>
+		<empleado dni="333445555" trabajaPara="5" supervisor="888665555" dirige="5">
+			<nombre>Fernando</nombre>
+			<apellidos>Gomez Alvarez</apellidos>
+			<fechaNacimiento>08-DIC-45</fechaNacimiento>
+			<direccion>Gran Via, 23, Huelva</direccion>
+			<sexo>M</sexo>
+			<salario>40000</salario>
+			<familiares>
+				<familiar>
+					<nombreFamiliar>Alicia</nombreFamiliar>
+					<sexo>F</sexo>
+					<fechaNacimiento>05-ABR-1976</fechaNacimiento>
+					<relacion>Hija</relacion>
+				</familiar>
+				<familiar>
+					<nombreFamiliar>Tomas</nombreFamiliar>
+					<sexo>M</sexo>
+					<fechaNacimiento>25-OCT-1973</fechaNacimiento>
+					<relacion>Hijo</relacion>
+				</familiar>
+				<familiar>
+					<nombreFamiliar>Jimena</nombreFamiliar>
+					<sexo>F</sexo>
+					<fechaNacimiento>03-MAY-1948</fechaNacimiento>
+					<relacion>Esposa</relacion>
+				</familiar>
+			</familiares>
+			<supervisa ednis="123456789 666884444 453453453"/>
+			<proyectos>
+				<trabajaEn pnum="2" horas="10.0"/>
+				<trabajaEn pnum="3" horas="10.0"/>
+				<trabajaEn pnum="10" horas="10.0"/>
+				<trabajaEn pnum="20" horas="10.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="888665555" trabajaPara="1" dirige="1">
+			<nombre>Juan</nombre>
+			<apellidos>Vazquez Domeneq</apellidos>
+			<fechaNacimiento>10-NOV-27</fechaNacimiento>
+			<direccion>Av. Maritima, 32, Huelva</direccion>
+			<sexo>M</sexo>
+			<salario>55000</salario>
+			<supervisa ednis="333445555 987654321"/>
+			<proyectos>
+				<trabajaEn pnum="20" horas="0.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="987654321" trabajaPara="4" supervisor="888665555" dirige="4">
+			<nombre>Ana</nombre>
+			<apellidos>Velazquez Moreno</apellidos>
+			<fechaNacimiento>20-JUN-31</fechaNacimiento>
+			<direccion>Ensanche, 32, Valladolid</direccion>
+			<sexo>F</sexo>
+			<salario>43000</salario>
+			<familiares>
+				<familiar>
+					<nombreFamiliar>Abel</nombreFamiliar>
+					<sexo>M</sexo>
+					<fechaNacimiento>29-FEB-1932</fechaNacimiento>
+					<relacion>Marido</relacion>
+				</familiar>
+			</familiares>
+			<supervisa ednis="999887777 987987987"/>
+			<proyectos>
+				<trabajaEn pnum="30" horas="20.0"/>
+				<trabajaEn pnum="20" horas="15.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="123456789" trabajaPara="5" supervisor="333445555">
+			<nombre>Juan</nombre>
+			<apellidos>Estevez Gomez</apellidos>
+			<fechaNacimiento>09-ENE-55</fechaNacimiento>
+			<direccion>Fondeo, 76, Huelva</direccion>
+			<sexo>M</sexo>
+			<salario>30000</salario>
+			<familiares>
+				<familiar>
+					<nombreFamiliar>Miguel</nombreFamiliar>
+					<sexo>M</sexo>
+					<fechaNacimiento>01-ENE-1978</fechaNacimiento>
+					<relacion>Hijo</relacion>
+				</familiar>
+				<familiar>
+					<nombreFamiliar>Alicia</nombreFamiliar>
+					<sexo>F</sexo>
+					<fechaNacimiento>31-DIC-1978</fechaNacimiento>
+					<relacion>Hija</relacion>
+				</familiar>
+				<familiar>
+					<nombreFamiliar>Isabel</nombreFamiliar>
+					<sexo>F</sexo>
+					<fechaNacimiento>05-MAY-1957</fechaNacimiento>
+					<relacion>Esposa</relacion>
+				</familiar>
+			</familiares>
+			<proyectos>
+				<trabajaEn pnum="1" horas="32.5"/>
+				<trabajaEn pnum="2" horas="7.5"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="999887777" trabajaPara="4" supervisor="987654321">
+			<nombre>Alicia</nombre>
+			<apellidos>Zelaya</apellidos>
+			<fechaNacimiento>19-JUL-58</fechaNacimiento>
+			<direccion>Castillo, 81, Cadiz</direccion>
+			<sexo>F</sexo>
+			<salario>25000</salario>
+			<proyectos>
+				<trabajaEn pnum="30" horas="30.0"/>
+				<trabajaEn pnum="10" horas="10.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666884444" trabajaPara="5" supervisor="333445555">
+			<nombre>Ramiro</nombre>
+			<apellidos>Narvaez Moreno</apellidos>
+			<fechaNacimiento>15-SEP-52</fechaNacimiento>
+			<direccion>Nogales, 48, Santiago</direccion>
+			<sexo>M</sexo>
+			<salario>38000</salario>
+			<proyectos>
+				<trabajaEn pnum="3" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="453453453" trabajaPara="5" supervisor="333445555">
+			<nombre>Elena</nombre>
+			<apellidos>Rodriguez Garcia</apellidos>
+			<fechaNacimiento>31-JUL-62</fechaNacimiento>
+			<direccion>Naranjos, 59, Huelva</direccion>
+			<sexo>F</sexo>
+			<salario>25000</salario>
+			<proyectos>
+				<trabajaEn pnum="1" horas="20.0"/>
+				<trabajaEn pnum="2" horas="20.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="987987987" trabajaPara="4" supervisor="987654321">
+			<nombre>Anton</nombre>
+			<apellidos>Jimenez del Rio</apellidos>
+			<fechaNacimiento>29-MAR-59</fechaNacimiento>
+			<direccion>Av. America, 121, Huelva</direccion>
+			<sexo>M</sexo>
+			<salario>25000</salario>
+			<proyectos>
+				<trabajaEn pnum="10" horas="35.0"/>
+				<trabajaEn pnum="30" horas="5.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="111111100" trabajaPara="6" dirige="6">
+			<nombre>Juan</nombre>
+			<apellidos>Pazos Castro</apellidos>
+			<fechaNacimiento>10-OCT-1966</fechaNacimiento>
+			<direccion>Rambla, 234, Barcelona</direccion>
+			<sexo>M</sexo>
+			<salario>85000</salario>
+			<supervisa ednis="111111101 111111102 111111103"/>
+			<proyectos>
+				<trabajaEn pnum="61" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="444444400" trabajaPara="7" dirige="7">
+			<nombre>Alejandro</nombre>
+			<apellidos>Martinez de la Rua</apellidos>
+			<fechaNacimiento>09-OCT-1950</fechaNacimiento>
+			<direccion>Castro, 32, Vigo</direccion>
+			<sexo>M</sexo>
+			<salario>89000</salario>
+			<familiares>
+				<familiar>
+					<nombreFamiliar>Juan</nombreFamiliar>
+					<sexo>M</sexo>
+					<fechaNacimiento>04-ABR-1997</fechaNacimiento>
+					<relacion>Hijo</relacion>
+				</familiar>
+				<familiar>
+					<nombreFamiliar>Tomas</nombreFamiliar>
+					<sexo>M</sexo>
+					<fechaNacimiento>07-ABR-1999</fechaNacimiento>
+					<relacion>Hijo</relacion>
+				</familiar>
+			</familiares>
+			<supervisa ednis="444444401 444444402 444444403"/>
+			<proyectos>
+				<trabajaEn pnum="91" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="555555500" trabajaPara="6" dirige="8">
+			<nombre>Gerardo</nombre>
+			<apellidos>Garcia de Paredes</apellidos>
+			<fechaNacimiento>30-JUN-1975</fechaNacimiento>
+			<direccion>Puerto, 32, Valencia</direccion>
+			<sexo>M</sexo>
+			<salario>81000</salario>
+			<supervisa ednis="555555501"/>
+			<proyectos>
+				<trabajaEn pnum="92" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="111111101" trabajaPara="6" supervisor="111111100">
+			<nombre>Daniel</nombre>
+			<apellidos>Martinez Sanchez</apellidos>
+			<fechaNacimiento>14-NOV-1967</fechaNacimiento>
+			<direccion>Gracia, 111, Barcelona</direccion>
+			<sexo>M</sexo>
+			<salario>45000</salario>
+			<proyectos>
+				<trabajaEn pnum="61" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="111111102" trabajaPara="6" supervisor="111111100">
+			<nombre>Juan</nombre>
+			<apellidos>Martinez Olieira</apellidos>
+			<fechaNacimiento>12-ENE-1966</fechaNacimiento>
+			<direccion>Mayo, 234, Barcelona</direccion>
+			<sexo>M</sexo>
+			<salario>40000</salario>
+			<proyectos>
+				<trabajaEn pnum="61" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="111111103" trabajaPara="6" supervisor="111111100">
+			<nombre>Benito</nombre>
+			<apellidos>Rey Lago</apellidos>
+			<fechaNacimiento>13-FEB-1968</fechaNacimiento>
+			<direccion>Diagonal, 176, Barcelona</direccion>
+			<sexo>M</sexo>
+			<salario>44000</salario>
+			<proyectos>
+				<trabajaEn pnum="61" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="222222200" trabajaPara="7">
+			<nombre>Emilio</nombre>
+			<apellidos>Rosello Vazquez</apellidos>
+			<fechaNacimiento>16-ENE-1958</fechaNacimiento>
+			<direccion>Pino, 134, Malaga</direccion>
+			<sexo>M</sexo>
+			<salario>92000</salario>
+			<supervisa ednis="222222201 222222202 222222203"/>
+			<proyectos>
+				<trabajaEn pnum="62" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="222222201" trabajaPara="7" supervisor="222222200">
+			<nombre>Santiago</nombre>
+			<apellidos>Pena Juarez</apellidos>
+			<fechaNacimiento>22-MAY-1954</fechaNacimiento>
+			<direccion>Venezuela, 176, Malaga</direccion>
+			<sexo>M</sexo>
+			<salario>56000</salario>
+			<supervisa ednis="222222204 222222205"/>
+			<proyectos>
+				<trabajaEn pnum="62" horas="48.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="222222202" trabajaPara="7" supervisor="222222200">
+			<nombre>Andres</nombre>
+			<apellidos>Villa Gomez</apellidos>
+			<fechaNacimiento>21-JUN-1944</fechaNacimiento>
+			<direccion>Paseo Principal, 32, Malaga</direccion>
+			<sexo>M</sexo>
+			<salario>53000</salario>
+			<proyectos>
+				<trabajaEn pnum="62" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="222222203" trabajaPara="7" supervisor="222222200">
+			<nombre>Fernando</nombre>
+			<apellidos>Benito Yermo</apellidos>
+			<fechaNacimiento>16-DIC-1966</fechaNacimiento>
+			<direccion>Menor, 34, Malalga</direccion>
+			<sexo>M</sexo>
+			<salario>62500</salario>
+			<proyectos>
+				<trabajaEn pnum="62" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="222222204" trabajaPara="7" supervisor="222222201">
+			<nombre>Sandra</nombre>
+			<apellidos>Vicente Gomez</apellidos>
+			<fechaNacimiento>11-NOV-1967</fechaNacimiento>
+			<direccion>Monterrey, 1, Malaga</direccion>
+			<sexo>F</sexo>
+			<salario>61000</salario>
+			<proyectos>
+				<trabajaEn pnum="62" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="222222205" trabajaPara="7" supervisor="222222201">
+			<nombre>Cristina</nombre>
+			<apellidos>Calanda Ferro</apellidos>
+			<fechaNacimiento>21-MAR-1960</fechaNacimiento>
+			<direccion>Argentina, 32, Malaga</direccion>
+			<sexo>F</sexo>
+			<salario>43000</salario>
+			<proyectos>
+				<trabajaEn pnum="62" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="333333300" trabajaPara="6">
+			<nombre>Carmen</nombre>
+			<apellidos>Gracia Lopez</apellidos>
+			<fechaNacimiento>23-OCT-1970</fechaNacimiento>
+			<direccion>Avenida America, 67, Valencia</direccion>
+			<sexo>F</sexo>
+			<salario>79000</salario>
+			<proyectos>
+				<trabajaEn pnum="63" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="333333301" trabajaPara="6" supervisor="333333300">
+			<nombre>Jose</nombre>
+			<apellidos>Chino Rey</apellidos>
+			<fechaNacimiento>07-ENE-1970</fechaNacimiento>
+			<direccion>Plaza Mayor, 12, Valencia</direccion>
+			<sexo>M</sexo>
+			<salario>44000</salario>
+			<proyectos>
+				<trabajaEn pnum="63" horas="46.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="444444401" trabajaPara="7" supervisor="444444400">
+			<nombre>Blanca</nombre>
+			<apellidos>Cordero Jimenez</apellidos>
+			<fechaNacimiento>19-JUN-1956</fechaNacimiento>
+			<direccion>Navidad, 134, Malaga</direccion>
+			<sexo>F</sexo>
+			<salario>70000</salario>
+			<familiares>
+				<familiar>
+					<nombreFamiliar>Felipe</nombreFamiliar>
+					<sexo>M</sexo>
+					<fechaNacimiento>19-ABR-1969</fechaNacimiento>
+					<relacion>Marido</relacion>
+				</familiar>
+			</familiares>
+			<proyectos>
+				<trabajaEn pnum="91" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="444444402" trabajaPara="7" supervisor="444444400">
+			<nombre>Alejandro</nombre>
+			<apellidos>Benito Castro</apellidos>
+			<fechaNacimiento>18-JUN-1966</fechaNacimiento>
+			<direccion>Av. Universidad, 233, Malaga</direccion>
+			<sexo>M</sexo>
+			<salario>60000</salario>
+			<familiares>
+				<familiar>
+					<nombreFamiliar>Blanca</nombreFamiliar>
+					<sexo>F</sexo>
+					<fechaNacimiento>14-FEB-1964</fechaNacimiento>
+					<relacion>Esposa</relacion>
+				</familiar>
+			</familiares>
+			<proyectos>
+				<trabajaEn pnum="91" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="444444403" trabajaPara="7" supervisor="444444400">
+			<nombre>Samuel</nombre>
+			<apellidos>Outes Hernandez</apellidos>
+			<fechaNacimiento>31-JUL-1977</fechaNacimiento>
+			<direccion>Estambres, 32, Malaga</direccion>
+			<sexo>M</sexo>
+			<salario>48000</salario>
+			<proyectos>
+				<trabajaEn pnum="91" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="555555501" trabajaPara="6" supervisor="555555500">
+			<nombre>Nadia</nombre>
+			<apellidos>Basanta Dieguez</apellidos>
+			<fechaNacimiento>16-ABR-1969</fechaNacimiento>
+			<direccion>Infante, 45, Valencia</direccion>
+			<sexo>F</sexo>
+			<salario>62000</salario>
+			<proyectos>
+				<trabajaEn pnum="92" horas="44.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666666600" trabajaPara="8">
+			<nombre>Vicente</nombre>
+			<apellidos>Blanco Sierra</apellidos>
+			<fechaNacimiento>17-ABR-1968</fechaNacimiento>
+			<direccion>Zoo, 34, Cuenca</direccion>
+			<sexo>M</sexo>
+			<salario>96000</salario>
+			<supervisa ednis="666666601 666666602"/>
+		</empleado>
+		<empleado dni="666666601" trabajaPara="8" supervisor="666666600">
+			<nombre>Alicia</nombre>
+			<apellidos>Camacho Lis</apellidos>
+			<fechaNacimiento>14-ENE-1966</fechaNacimiento>
+			<direccion>Republica, 345, Cuenca</direccion>
+			<sexo>F</sexo>
+			<salario>36000</salario>
+			<supervisa ednis="666666603"/>
+			<proyectos>
+				<trabajaEn pnum="91" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666666602" trabajaPara="8" supervisor="666666600">
+			<nombre>Carmen</nombre>
+			<apellidos>Rey Toledo</apellidos>
+			<fechaNacimiento>16-ABR-1966</fechaNacimiento>
+			<direccion>Paz, 48, Cuenca</direccion>
+			<sexo>F</sexo>
+			<salario>44000</salario>
+			<supervisa ednis="666666607 666666608 666666609"/>
+		</empleado>
+		<empleado dni="666666603" trabajaPara="8" supervisor="666666601">
+			<nombre>Luis</nombre>
+			<apellidos>Lopez Ayala</apellidos>
+			<fechaNacimiento>09-JUN-1963</fechaNacimiento>
+			<direccion>Av. Europa, 38, Cuenca</direccion>
+			<sexo>M</sexo>
+			<salario>41000</salario>
+			<supervisa ednis="666666604 666666605"/>
+			<proyectos>
+				<trabajaEn pnum="91" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666666604" trabajaPara="8" supervisor="666666603">
+			<nombre>Vicenta</nombre>
+			<apellidos>Rey Uria</apellidos>
+			<fechaNacimiento>01-ENE-1960</fechaNacimiento>
+			<direccion>Washington, 54, Cuenca</direccion>
+			<sexo>F</sexo>
+			<salario>38000</salario>
+			<supervisa ednis="666666606"/>
+			<proyectos>
+				<trabajaEn pnum="91" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666666605" trabajaPara="8" supervisor="666666603">
+			<nombre>Juan</nombre>
+			<apellidos>Welter Sanchez</apellidos>
+			<fechaNacimiento>22-AGO-1964</fechaNacimiento>
+			<direccion>Mayor, 62, Guadalajara</direccion>
+			<sexo>M</sexo>
+			<salario>41500</salario>
+			<proyectos>
+				<trabajaEn pnum="92" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666666606" trabajaPara="8" supervisor="666666604">
+			<nombre>Rodrigo</nombre>
+			<apellidos>Rey Tormes</apellidos>
+			<fechaNacimiento>16-AGO-1949</fechaNacimiento>
+			<direccion>Rua Nova, 33, Santiago</direccion>
+			<sexo>M</sexo>
+			<salario>44500</salario>
+			<proyectos>
+				<trabajaEn pnum="91" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666666607" trabajaPara="8" supervisor="666666602">
+			<nombre>Gerardo</nombre>
+			<apellidos>Grande Rueda</apellidos>
+			<fechaNacimiento>15-MAY-1962</fechaNacimiento>
+			<direccion>Bosco, 40, Pontevedra</direccion>
+			<sexo>M</sexo>
+			<salario>29000</salario>
+			<supervisa ednis="666666610"/>
+			<proyectos>
+				<trabajaEn pnum="61" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666666608" trabajaPara="8" supervisor="666666602">
+			<nombre>Armando</nombre>
+			<apellidos>Castro Gomez</apellidos>
+			<fechaNacimiento>19-MAY-1967</fechaNacimiento>
+			<direccion>Alameda, 45, Pontevedra</direccion>
+			<sexo>M</sexo>
+			<salario>33000</salario>
+			<proyectos>
+				<trabajaEn pnum="62" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666666609" trabajaPara="8" supervisor="666666602">
+			<nombre>Elsa</nombre>
+			<apellidos>Parra Olmedo</apellidos>
+			<fechaNacimiento>11-MAR-1969</fechaNacimiento>
+			<direccion>Ebro, 47, Ourense</direccion>
+			<sexo>F</sexo>
+			<salario>32000</salario>
+			<proyectos>
+				<trabajaEn pnum="63" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666666610" trabajaPara="8" supervisor="666666607">
+			<nombre>Norberto</nombre>
+			<apellidos>Diaz Urquijo</apellidos>
+			<fechaNacimiento>23-MAY-1970</fechaNacimiento>
+			<direccion>Galicia, 78, Lugo</direccion>
+			<sexo>M</sexo>
+			<salario>34000</salario>
+			<supervisa ednis="666666611"/>
+			<proyectos>
+				<trabajaEn pnum="61" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666666611" trabajaPara="8" supervisor="666666610">
+			<nombre>Carlos</nombre>
+			<apellidos>Ramirez Sola</apellidos>
+			<fechaNacimiento>21-JUN-1977</fechaNacimiento>
+			<direccion>Ronda, 23, Lugo</direccion>
+			<sexo>M</sexo>
+			<salario>32000</salario>
+			<supervisa ednis="666666612"/>
+			<proyectos>
+				<trabajaEn pnum="61" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666666612" trabajaPara="8" supervisor="666666611">
+			<nombre>Samuel</nombre>
+			<apellidos>Jimenez Diaz</apellidos>
+			<fechaNacimiento>11-ENE-1970</fechaNacimiento>
+			<direccion>Alcala, 47, Madrid</direccion>
+			<sexo>M</sexo>
+			<salario>37000</salario>
+			<supervisa ednis="666666613"/>
+			<proyectos>
+				<trabajaEn pnum="61" horas="40.0"/>
+			</proyectos>
+		</empleado>
+		<empleado dni="666666613" trabajaPara="8" supervisor="666666612">
+			<nombre>Raul</nombre>
+			<apellidos>Vaquero Regente</apellidos>
+			<fechaNacimiento>21-MAY-1980</fechaNacimiento>
+			<direccion>Velazquez, 170, Madrid</direccion>
+			<sexo>M</sexo>
+			<salario>33500</salario>
+			<proyectos>
+				<trabajaEn pnum="61" horas="30.0"/>
+				<trabajaEn pnum="62" horas="10.0"/>
+				<trabajaEn pnum="63" horas="10.0"/>
+			</proyectos>
+		</empleado>
+	</empleados>
+	<proyectos>
+		<proyecto pnumero="1" departamentoResponsable="5">
+			<pnombre>Producto X</pnombre>
+			<psucursal>Bilbao</psucursal>
+			<empleadosAsignados>
+				<empleadoAsignado edni="123456789">32.5</empleadoAsignado>
+				<empleadoAsignado edni="453453453">20.0</empleadoAsignado>
+			</empleadosAsignados>
+		</proyecto>
+		<proyecto pnumero="2" departamentoResponsable="5">
+			<pnombre>Producto Y</pnombre>
+			<psucursal>Sevilla</psucursal>
+			<empleadosAsignados>
+				<empleadoAsignado edni="123456789">7.5</empleadoAsignado>
+				<empleadoAsignado edni="453453453">20.0</empleadoAsignado>
+				<empleadoAsignado edni="333445555">10.0</empleadoAsignado>
+			</empleadosAsignados>
+		</proyecto>
+		<proyecto pnumero="3" departamentoResponsable="5">
+			<pnombre>Producto Z</pnombre>
+			<psucursal>Huelva</psucursal>
+			<empleadosAsignados>
+				<empleadoAsignado edni="666884444">40.0</empleadoAsignado>
+				<empleadoAsignado edni="333445555">10.0</empleadoAsignado>
+			</empleadosAsignados>
+		</proyecto>
+		<proyecto pnumero="10" departamentoResponsable="4">
+			<pnombre>Compiladores</pnombre>
+			<psucursal>Salamanca</psucursal>
+			<empleadosAsignados>
+				<empleadoAsignado edni="333445555">10.0</empleadoAsignado>
+				<empleadoAsignado edni="999887777">10.0</empleadoAsignado>
+				<empleadoAsignado edni="987987987">35.0</empleadoAsignado>
+			</empleadosAsignados>
+		</proyecto>
+		<proyecto pnumero="20" departamentoResponsable="1">
+			<pnombre>Reorganizacion</pnombre>
+			<psucursal>Huelva</psucursal>
+			<empleadosAsignados>
+				<empleadoAsignado edni="333445555">10.0</empleadoAsignado>
+				<empleadoAsignado edni="987654321">15.0</empleadoAsignado>
+				<empleadoAsignado edni="888665555">0.0</empleadoAsignado>
+			</empleadosAsignados>
+		</proyecto>
+		<proyecto pnumero="30" departamentoResponsable="4">
+			<pnombre>Estudios de mercado</pnombre>
+			<psucursal>Salamanca</psucursal>
+			<empleadosAsignados>
+				<empleadoAsignado edni="999887777">30.0</empleadoAsignado>
+				<empleadoAsignado edni="987987987">5.0</empleadoAsignado>
+				<empleadoAsignado edni="987654321">20.0</empleadoAsignado>
+			</empleadosAsignados>
+		</proyecto>
+		<proyecto pnumero="61" departamentoResponsable="6">
+			<pnombre>Sistemas operativos</pnombre>
+			<psucursal>Valencia</psucursal>
+			<empleadosAsignados>
+				<empleadoAsignado edni="111111100">40.0</empleadoAsignado>
+				<empleadoAsignado edni="111111101">40.0</empleadoAsignado>
+				<empleadoAsignado edni="111111102">40.0</empleadoAsignado>
+				<empleadoAsignado edni="111111103">40.0</empleadoAsignado>
+				<empleadoAsignado edni="666666607">40.0</empleadoAsignado>
+				<empleadoAsignado edni="666666610">40.0</empleadoAsignado>
+				<empleadoAsignado edni="666666611">40.0</empleadoAsignado>
+				<empleadoAsignado edni="666666612">40.0</empleadoAsignado>
+				<empleadoAsignado edni="666666613">30.0</empleadoAsignado>
+			</empleadosAsignados>
+		</proyecto>
+		<proyecto pnumero="62" departamentoResponsable="6">
+			<pnombre>Bases de datos</pnombre>
+			<psucursal>Barcelona</psucursal>
+			<empleadosAsignados>
+				<empleadoAsignado edni="222222200">40.0</empleadoAsignado>
+				<empleadoAsignado edni="222222201">48.0</empleadoAsignado>
+				<empleadoAsignado edni="222222202">40.0</empleadoAsignado>
+				<empleadoAsignado edni="222222203">40.0</empleadoAsignado>
+				<empleadoAsignado edni="222222204">40.0</empleadoAsignado>
+				<empleadoAsignado edni="222222205">40.0</empleadoAsignado>
+				<empleadoAsignado edni="666666608">40.0</empleadoAsignado>
+				<empleadoAsignado edni="666666613">10.0</empleadoAsignado>
+			</empleadosAsignados>
+		</proyecto>
+		<proyecto pnumero="63" departamentoResponsable="6">
+			<pnombre>Middleware</pnombre>
+			<psucursal>Valencia</psucursal>
+			<empleadosAsignados>
+				<empleadoAsignado edni="333333300">40.0</empleadoAsignado>
+				<empleadoAsignado edni="333333301">46.0</empleadoAsignado>
+				<empleadoAsignado edni="666666609">40.0</empleadoAsignado>
+				<empleadoAsignado edni="666666613">10.0</empleadoAsignado>
+			</empleadosAsignados>
+		</proyecto>
+		<proyecto pnumero="91" departamentoResponsable="7">
+			<pnombre>Impresoras de inyeccion</pnombre>
+			<psucursal>Palencia</psucursal>
+			<empleadosAsignados>
+				<empleadoAsignado edni="444444400">40.0</empleadoAsignado>
+				<empleadoAsignado edni="444444401">40.0</empleadoAsignado>
+				<empleadoAsignado edni="444444402">40.0</empleadoAsignado>
+				<empleadoAsignado edni="444444403">40.0</empleadoAsignado>
+				<empleadoAsignado edni="666666601">40.0</empleadoAsignado>
+				<empleadoAsignado edni="666666603">40.0</empleadoAsignado>
+				<empleadoAsignado edni="666666604">40.0</empleadoAsignado>
+				<empleadoAsignado edni="666666606">40.0</empleadoAsignado>
+			</empleadosAsignados>
+		</proyecto>
+		<proyecto pnumero="92" departamentoResponsable="7">
+			<pnombre>Impresoras laser</pnombre>
+			<psucursal>Lisboa</psucursal>
+			<empleadosAsignados>
+				<empleadoAsignado edni="555555500">40.0</empleadoAsignado>
+				<empleadoAsignado edni="555555501">44.0</empleadoAsignado>
+				<empleadoAsignado edni="666666605">40.0</empleadoAsignado>
+			</empleadosAsignados>
+		</proyecto>
+	</proyectos>
+</BDempresa>
